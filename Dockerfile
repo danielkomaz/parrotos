@@ -1,9 +1,6 @@
 FROM parrotsec/security:rolling
 
 RUN parrot-upgrade \
-apt-get install crackmapexec -y \
-apt-get install samba -y \
-apt install python3-venv python3-pip \
-git clone https://github.com/SecureAuthCorp/impacket.git \
-cd impacket \
-pip install .
+apt install crackmapexec samba python3-venv python3-pip -y \
+cd && git clone https://github.com/SecureAuthCorp/impacket.git && cd impacket && pip install . \
+apt autoremove -y
